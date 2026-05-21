@@ -221,6 +221,234 @@ html, body, [data-testid="stAppViewContainer"] {
     font-family: 'JetBrains Mono', monospace !important;
     font-size: 0.8rem !important;
 }
+
+/* Polished app shell */
+[data-testid="stAppViewContainer"] {
+    background:
+        linear-gradient(145deg, rgba(20,184,166,.10), transparent 28%),
+        linear-gradient(215deg, rgba(244,63,94,.08), transparent 32%),
+        linear-gradient(180deg, #08111f 0%, #0b1020 48%, #090b12 100%) !important;
+}
+
+[data-testid="stAppViewContainer"]::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), transparent 78%);
+}
+
+.block-container {
+    max-width: 1180px;
+    padding-top: 1.4rem !important;
+    padding-bottom: 1rem !important;
+}
+
+[data-testid="stSidebar"] {
+    background:
+        linear-gradient(180deg, rgba(16,185,129,.10), transparent 24%),
+        #080d16 !important;
+    box-shadow: 12px 0 40px rgba(0,0,0,.22);
+}
+
+[data-testid="stSidebar"] * {
+    letter-spacing: 0 !important;
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(148,163,184,.18);
+    border-radius: 18px;
+    background:
+        linear-gradient(135deg, rgba(20,184,166,.08), rgba(124,58,237,.07)),
+        rgba(15,23,42,.76);
+    box-shadow: 0 18px 50px rgba(0,0,0,.24);
+    backdrop-filter: blur(14px);
+    margin-bottom: .9rem;
+}
+
+.title-stack { display: flex; align-items: center; gap: .8rem; }
+.title-mark {
+    width: 44px; height: 44px; border-radius: 14px;
+    display: grid; place-items: center;
+    background: linear-gradient(135deg, #14B8A6, #7C3AED 55%, #F43F5E);
+    box-shadow: 0 12px 28px rgba(20,184,166,.20);
+    font-size: 1.3rem;
+    border: 1px solid rgba(255,255,255,.14);
+}
+.title-copy h1 {
+    margin: 0;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.7rem;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #F8FAFC;
+}
+.title-copy p {
+    margin: .35rem 0 0;
+    color: #94A3B8;
+    font-size: .76rem;
+}
+
+.provider-badge {
+    background: rgba(8,13,22,.78);
+    border: 1px solid rgba(148,163,184,.22);
+    border-radius: 999px;
+    padding: .48rem .72rem;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+.stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .8rem;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 1rem;
+}
+.stat-item {
+    min-height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: .24rem;
+    padding: .85rem 1rem;
+    border: 1px solid rgba(148,163,184,.16);
+    border-radius: 14px;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,.035), transparent),
+        rgba(15,23,42,.58);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+}
+.stat-label { color: #94A3B8; font-size: .68rem; }
+.stat-val { color: #F8FAFC; font-size: 1.05rem; font-weight: 700; }
+
+.chat-window {
+    height: 58vh;
+    padding: 1.1rem;
+    border: 1px solid rgba(148,163,184,.16);
+    border-radius: 18px;
+    background: rgba(2,6,23,.42);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    box-shadow: 0 10px 24px rgba(0,0,0,.22);
+}
+.bubble {
+    max-width: min(760px, 74%);
+    border-radius: 18px;
+    box-shadow: 0 12px 32px rgba(0,0,0,.20);
+}
+.bubble-user {
+    background: linear-gradient(135deg, #0F766E, #4C1D95);
+    border-color: rgba(45,212,191,.32);
+    color: #F8FAFC;
+}
+.bubble-ai {
+    background: linear-gradient(180deg, rgba(30,41,59,.96), rgba(15,23,42,.96));
+    border-color: rgba(148,163,184,.18);
+}
+
+.greeting {
+    min-height: 46vh;
+    display: grid;
+    place-items: center;
+    padding: 2rem 1rem;
+    border: 1px solid rgba(148,163,184,.16);
+    border-radius: 18px;
+    background:
+        linear-gradient(135deg, rgba(20,184,166,.12), transparent 44%),
+        linear-gradient(225deg, rgba(244,63,94,.10), transparent 46%),
+        rgba(2,6,23,.42);
+    position: relative;
+    overflow: hidden;
+}
+.greeting::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: 17px;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,.10), transparent 30%),
+        linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
+    opacity: .75;
+}
+.greeting > div {
+    position: relative;
+    z-index: 1;
+}
+.greeting-icon {
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 1rem;
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #14B8A6, #7C3AED 55%, #F43F5E);
+    box-shadow: 0 20px 50px rgba(20,184,166,.16);
+}
+.greeting-title {
+    color: #F8FAFC;
+    background: none;
+    -webkit-text-fill-color: #F8FAFC;
+    font-size: 1.75rem;
+}
+.greeting-copy {
+    max-width: 520px;
+    color: #94A3B8;
+    font-size: .86rem;
+    line-height: 1.65;
+}
+
+.stButton > button, .stFormSubmitButton > button {
+    min-height: 2.65rem;
+    background: linear-gradient(135deg, #14B8A6, #7C3AED) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 12px 28px rgba(20,184,166,.16) !important;
+}
+.stButton > button:hover, .stFormSubmitButton > button:hover {
+    filter: brightness(1.08);
+    opacity: 1 !important;
+}
+.stTextInput input, .stTextArea textarea, .stSelectbox > div > div {
+    background: rgba(2,6,23,.72) !important;
+    border-color: rgba(148,163,184,.18) !important;
+    border-radius: 12px !important;
+}
+.stTextInput input {
+    min-height: 2.65rem;
+}
+.stTextInput input::placeholder, .stTextArea textarea::placeholder {
+    color: rgba(148,163,184,.66) !important;
+}
+[data-testid="stSidebar"] .stMarkdown hr {
+    border-color: rgba(148,163,184,.14);
+}
+[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+    gap: .55rem;
+}
+
+@media (max-width: 760px) {
+    .app-header { align-items: flex-start; flex-direction: column; }
+    .stats-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .bubble { max-width: 84%; }
+    .title-copy h1 { font-size: 1.35rem; }
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -249,15 +477,6 @@ PROVIDERS = {
     },
 }
 
-STARTER_PROMPTS = [
-    "✍️  Write a Python function to reverse a linked list",
-    "🌍  Explain climate change in simple terms",
-    "🧠  What is the difference between AI, ML, and DL?",
-    "📧  Draft a professional email requesting a meeting",
-    "🔢  Solve: if 2x + 5 = 17, find x",
-    "🍕  Give me a quick pasta recipe",
-]
-
 # ── Session state defaults ────────────────────────────────────────────────────
 def _init():
     defaults = {
@@ -265,10 +484,6 @@ def _init():
         "total_tokens":  0,
         "total_latency": 0.0,
         "msg_count":     0,
-        "openai_key":    os.getenv("OPENAI_API_KEY", ""),
-        "gemini_key":    os.getenv("GOOGLE_API_KEY", ""),
-        "groq_key":      os.getenv("GROQ_API_KEY", ""),
-        "langsmith_key": os.getenv("LANGCHAIN_API_KEY", ""),
     }
     for k, v in defaults.items():
         if k not in st.session_state:
@@ -279,7 +494,7 @@ _init()
 # ── LLM builder ───────────────────────────────────────────────────────────────
 def build_llm(provider: str, model: str, temperature: float, max_tokens: int):
     cfg = PROVIDERS[provider]
-    api_key = os.getenv(cfg["env"]) or st.session_state.get(cfg["skey"], "")
+    api_key = os.getenv(cfg["env"], "")
 
     if provider == "OpenAI (GPT-4o)":
         from langchain_openai import ChatOpenAI
@@ -337,7 +552,7 @@ with st.sidebar:
                   -webkit-background-clip:text;-webkit-text-fill-color:transparent;'>
         ⚡ AI Chatbot
       </div>
-      <div style='color:#4B5563;font-size:.62rem;letter-spacing:.18em;margin-top:3px;'>
+      <div style='color:#4B5563;font-size:.62rem;letter-spacing:0;margin-top:3px;'>
         MULTI-PROVIDER
       </div>
     </div>
@@ -346,21 +561,21 @@ with st.sidebar:
     st.markdown("---")
 
     # Provider & Model
-    st.markdown("<div style='color:#94A3B8;font-size:.72rem;letter-spacing:.1em;margin-bottom:6px;'>🤖 MODEL</div>", unsafe_allow_html=True)
+    st.markdown("<div style='color:#94A3B8;font-size:.72rem;letter-spacing:0;margin-bottom:6px;'>🤖 MODEL</div>", unsafe_allow_html=True)
     provider = st.selectbox("Provider", list(PROVIDERS.keys()), label_visibility="collapsed", key="sb_provider")
     model    = st.selectbox("Model",    PROVIDERS[provider]["models"], label_visibility="collapsed", key="sb_model")
 
     st.markdown("<br>", unsafe_allow_html=True)
 
     # Parameters
-    st.markdown("<div style='color:#94A3B8;font-size:.72rem;letter-spacing:.1em;margin-bottom:6px;'>⚙️ PARAMETERS</div>", unsafe_allow_html=True)
+    st.markdown("<div style='color:#94A3B8;font-size:.72rem;letter-spacing:0;margin-bottom:6px;'>⚙️ PARAMETERS</div>", unsafe_allow_html=True)
     temperature = st.slider("Temperature", 0.0, 1.0, 0.7, 0.05)
     max_tokens  = st.slider("Max Tokens",  128, 4096, 1024, 128)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
     # System prompt
-    st.markdown("<div style='color:#94A3B8;font-size:.72rem;letter-spacing:.1em;margin-bottom:6px;'>📋 SYSTEM PROMPT</div>", unsafe_allow_html=True)
+    st.markdown("<div style='color:#94A3B8;font-size:.72rem;letter-spacing:0;margin-bottom:6px;'>📋 SYSTEM PROMPT</div>", unsafe_allow_html=True)
     system_prompt = st.text_area(
         "", label_visibility="collapsed",
         value="You are a helpful, knowledgeable, and friendly AI assistant. Be concise and clear.",
@@ -369,32 +584,11 @@ with st.sidebar:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # API Keys
-    st.markdown("<div style='color:#94A3B8;font-size:.72rem;letter-spacing:.1em;margin-bottom:6px;'>🔑 API KEYS</div>", unsafe_allow_html=True)
-    with st.expander("Configure", expanded=not bool(os.getenv("OPENAI_API_KEY"))):
-        for label, env_var, skey, ph in [
-            ("OpenAI",    "OPENAI_API_KEY",    "openai_key",    "sk-…"),
-            ("Gemini",    "GOOGLE_API_KEY",    "gemini_key",    "AIza…"),
-            ("Groq",      "GROQ_API_KEY",      "groq_key",      "gsk_…"),
-            ("LangSmith", "LANGCHAIN_API_KEY", "langsmith_key", "ls__…"),
-        ]:
-            val = st.text_input(label, type="password",
-                                value=os.getenv(env_var, ""),
-                                placeholder=ph, key=f"key_{skey}")
-            if val:
-                st.session_state[skey] = val
-                os.environ[env_var] = val
-        if st.session_state.get("langsmith_key"):
-            os.environ["LANGCHAIN_TRACING_V2"] = "true"
-            os.environ["LANGCHAIN_PROJECT"]    = "ai-chatbot"
-
-    st.markdown("<br>", unsafe_allow_html=True)
-
     # Provider status
-    st.markdown("<div style='color:#94A3B8;font-size:.72rem;letter-spacing:.1em;margin-bottom:8px;'>📡 STATUS</div>", unsafe_allow_html=True)
+    st.markdown("<div style='color:#94A3B8;font-size:.72rem;letter-spacing:0;margin-bottom:8px;'>📡 STATUS</div>", unsafe_allow_html=True)
     for pname, pcfg in PROVIDERS.items():
         short = pname.split(" ")[0]
-        ok    = bool(os.getenv(pcfg["env"]) or st.session_state.get(pcfg["skey"]))
+        ok    = bool(os.getenv(pcfg["env"]))
         color = pcfg["color"] if ok else "#4B5563"
         st.markdown(
             f"<div style='display:flex;align-items:center;gap:8px;margin-bottom:5px;font-size:.75rem;'>"
@@ -421,14 +615,13 @@ with st.sidebar:
 pcfg  = PROVIDERS[provider]
 pcolor = pcfg["color"]
 st.markdown(f"""
-<div style='display:flex;align-items:center;justify-content:space-between;
-            padding:1rem 0 0.8rem;border-bottom:1px solid #1E2A3A;margin-bottom:1rem;'>
-  <div>
-    <span style='font-family:Syne,sans-serif;font-size:1.6rem;font-weight:800;
-      background:linear-gradient(135deg,#00D4FF,#7C3AED);
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;'>
-      💬 Chat
-    </span>
+<div class='app-header'>
+  <div class='title-stack'>
+    <div class='title-mark'>💬</div>
+    <div class='title-copy'>
+      <h1>AI Chat Studio</h1>
+      <p>Fast conversations across OpenAI, Gemini, and Groq.</p>
+    </div>
   </div>
   <div class='provider-badge'>
     <div class='provider-dot' style='background:{pcolor};'></div>
@@ -446,12 +639,12 @@ lat = round(st.session_state["total_latency"] / n, 2) if n else 0
 
 st.markdown(f"""
 <div class='stats-bar'>
-  <div class='stat-item'>💬 Messages <span class='stat-val'>{n}</span></div>
-  <div class='stat-item'>🪙 Tokens <span class='stat-val'>{tok:,}</span></div>
-  <div class='stat-item'>⏱ Avg latency <span class='stat-val'>{lat}s</span></div>
-  <div class='stat-item' style='margin-left:auto;'>
-    <div style='width:7px;height:7px;border-radius:50%;background:{pcolor};'></div>
-    <span style='color:{pcolor};font-size:.7rem;'>{provider.split(" ")[0]}</span>
+  <div class='stat-item'><span class='stat-label'>Messages</span><span class='stat-val'>{n}</span></div>
+  <div class='stat-item'><span class='stat-label'>Tokens</span><span class='stat-val'>{tok:,}</span></div>
+  <div class='stat-item'><span class='stat-label'>Avg latency</span><span class='stat-val'>{lat}s</span></div>
+  <div class='stat-item'>
+    <span class='stat-label'>Active model</span>
+    <span class='stat-val' style='color:{pcolor};font-size:.92rem;'>{provider.split(" ")[0]}</span>
   </div>
 </div>
 """, unsafe_allow_html=True)
@@ -460,21 +653,16 @@ st.markdown(f"""
 messages = st.session_state["messages"]
 
 if not messages:
-    # Greeting / starter prompts
+    # Greeting
     st.markdown("""
     <div class='greeting'>
-      <div class='greeting-icon'>🤖</div>
-      <div class='greeting-title'>How can I help you today?</div>
-      <div>Pick a starter or type your own message below</div>
+      <div>
+        <div class='greeting-icon'>✦</div>
+        <div class='greeting-title'>What are we building today?</div>
+        <div class='greeting-copy'>Ask anything below and your selected model will pick it up from here.</div>
+      </div>
     </div>
     """, unsafe_allow_html=True)
-
-    cols = st.columns(2)
-    for i, prompt in enumerate(STARTER_PROMPTS):
-        if cols[i % 2].button(prompt, key=f"starter_{i}", use_container_width=True):
-            clean = prompt.split("  ", 1)[-1]   # strip emoji prefix
-            st.session_state["messages"].append({"role": "user", "content": clean})
-            st.rerun()
 
 else:
     # Render message history
